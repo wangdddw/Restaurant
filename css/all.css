@@ -1,0 +1,1769 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+s, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+
+	/*解決display:inline-block方法*/
+	font-size: 0;
+
+	font: inherit;
+	vertical-align: baseline;
+	display: block;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	height: auto;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*,*:before,*:after{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+img{
+	max-width: 100%;
+	height: auto ;
+}
+
+/* css reset end*/
+
+*{
+	font-family: MicrosoftJhengHeiRegular;
+}
+.clearfix{
+	clear: both;
+}
+a{
+	text-decoration: none;
+}
+
+/*共用css*/
+
+
+
+.warp{
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.header{
+	background: url(../images/header_desktop.png) no-repeat;
+	height: 420px;
+	max-width: 100%;
+	position: relative;
+	
+}
+/*mobile尺寸，更換header背景圖片*/
+@media(max-width: 568px){
+	.header{
+		background: url(../images/header_mobile.png) no-repeat;
+	}
+}
+.header .topbar{
+	height: 56px;
+	width: 100%;
+	background: rgba(0,0,0,0.75);
+	position: relative;
+}
+
+.header .topbar .logo{
+	display: inline-block;
+	background: url(../images/logo_w@svg.svg) no-repeat;
+	height: 24px;
+	width: 120px;
+	margin-top: 16px;
+	margin-left: 55px;
+	text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+    float: left;
+}
+
+.header .topbar .menu{
+	display: block;
+	float: right;
+}
+
+.header .topbar .menu li{
+	float: left;
+	padding: 20px 15px 0 15px ;
+	
+}
+
+.header .topbar .menu li a{
+	display: block;
+	text-decoration: none;
+	font-size: 16px;
+	color: #ffffff;
+	padding-bottom: 20px;
+}
+
+.header .topbar .menu .focus{
+	background: rgba(250,250,250,0.55);
+}
+
+.header .topbar .menu li:hover{
+	background: rgba(250,250,250,0.55);
+}
+
+/*隱藏漢堡選單.showmenu*/
+.showmenu{
+	display: none;
+}
+
+/*mobile尺寸時，選單變漢堡選單*/
+@media(max-width: 568px){
+	.showmenu{
+		display: block;
+		float: right;
+		margin: 1em;
+		color: #ffffff;
+		font-size: 18px;
+	}
+	.menu{
+		/*隱藏選單*/
+		max-height: 0px;
+		overflow: hidden;
+		transition: max-height 3s;
+		margin-top: 1px;
+
+		/*絕對定位疊在網頁上*/
+		position: absolute;
+		z-index: 1000;
+		/*topbar 56px*/
+		top: 55px;
+		left: 0;
+		right: 0;
+		background: rgba(0,0,0,0.75);
+	}
+
+	.menu li{
+		float: none;
+		width: 100%;
+		border-bottom: 1px dashed #ffffff;
+	}
+
+	.menu li a{
+		transition: all 0.3s;
+		margin-bottom: 1px;
+		padding-bottom: 0;
+	}
+
+	.menu li:hover{
+		background: rgba(201,202,206,0.25);
+		color: #000000;
+	}
+
+	.menu-show .menu{
+		max-height: 500px;
+	}
+}
+
+
+.banner{
+	width: 450px;
+	height: 190px;
+	color: #ffffff;
+	text-align: center;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left:0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.banner h1{
+	font-size: 36px;
+	padding: 20px 45px 0 20px;
+}
+
+.banner p{
+	font-size: 16px;
+	margin-top: 16px;
+	line-height: 120%;
+	padding-bottom: 26px;
+}
+
+.banner .br{
+	display: none;
+}
+
+/*mobile尺寸 banner大小與位置改變*/
+@media(max-width: 568px){
+	.banner{
+		width: 300px;
+		height: 220px;
+		position: absolute;
+		top: 0;
+		left:0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+
+	}
+	
+	.banner .br{
+		display: block;
+		line-height: 150%;
+	}
+
+	.banner h1{
+		padding: 20px 6px 10px 6px;
+	}
+	.banner p{
+		padding-bottom: 20px;
+	}
+}
+
+
+.content{
+	background: #efe9e7;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	float: left;
+
+}
+
+.content .delicious{
+	color: #3D1101;
+	font-size: 20px;
+	line-height: 32px;
+	text-align: center;
+	padding: 50px 12px 6px 12px;
+	
+}
+
+.content .delicious p{
+	display: block;
+}
+
+.content .delicious .hr{
+	
+	border: 1px solid #979797;
+	
+
+}
+
+.content .delicious .h1 , .content .delicious .h2{
+	width: 120px;
+}
+
+.content .delicious .h1{
+	position: absolute;
+	top: 85px;
+	left: 10%;
+	
+}
+
+
+.content .delicious .h2{
+	position: absolute;
+	top: 85px;
+	left: 75%;
+
+}
+
+/*mobile尺寸，兩條水平線消失*/
+@media(max-width: 568px){
+	.content .delicious .h1 , .content .delicious .h2{
+		display: none;
+	}
+}
+
+
+.content .features{
+	margin: 0 auto;
+}
+.content .features li{
+	float: left;
+	width: 30.3333%;
+	height: auto;
+	margin-top: 30px;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+	margin-bottom: 30px;
+	color: #3D1101;
+}
+
+.content .features li img{
+	display: block;
+	border-radius: 200px;
+	margin: auto;
+}
+
+.content .features li h3{
+	font-size: 18px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 11px;
+}
+
+.content .features li p{
+	font-size: 16px;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+/*當max-width = 568px li變成一行 */
+@media(max-width: 568px){
+	.content .features li{
+		float: none;
+		width: 98%;
+	}
+	.content .features li img{
+		margin:auto;
+
+	}
+
+	.content .features li h3{
+		margin-top: 20px;
+	}
+}
+
+.todaychef{
+	display: inline-block;
+	background: #3D1101;
+	height: auto;
+}
+
+.todaychef img{
+
+	height: auto;
+	float: left;
+	margin-left: 2%;
+}
+
+
+
+.todaychef .intro{
+	float: left;
+	width: 40%;
+	color: #EFE9E7;
+	margin-left: 3%;
+	
+}
+
+.todaychef .intro h3{
+	font-size: 20px;
+	margin-top: 81px;
+	line-height: 30px;
+	
+}
+
+.todaychef .intro p{
+	font-size: 16px;
+	line-height: 120%;
+	padding-top: 16px;
+}
+
+/*當max-width = 768px 圖置中 介紹放圖下方*/
+@media(max-width: 768px){
+	.todaychef{
+		margin: 0 auto;
+	}
+	.todaychef img{
+		width: 100%;
+		margin: 0;
+	}
+	.todaychef .intro{
+		float: none;
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-bottom: 30px;
+	}
+}
+
+
+.experience{
+	display: inline-block;
+	background: #efe9e7;
+}
+
+.experience h2{
+	font-size: 24px;
+	text-align: center;
+	color: #3D1101;
+	margin-top: 50px;
+}
+
+
+.experience .avatar{
+	float: left;
+}
+
+.experience .avatar li{
+	float: left;
+	width: 30.333%;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+	margin-top: 32px;
+}
+
+.experience .avatar li img{
+	display: block;
+	float: left;
+	border-radius: 67px; 
+	margin-right: 13px;
+	margin-bottom: 184px;
+}
+
+.experience .avatar li h3{
+	font-size: 18px;
+	color: #3d1101;
+	margin-bottom: 22px;
+}
+
+.experience .avatar li p{
+	color: #3d1101;
+	line-height: 1.8em;
+}
+
+.experience .avatar .name{
+	text-align: right;
+}
+
+/*max-width = 768px 單行*/
+@media(max-width: 768px){
+	.experience .avatar li{
+		float: none;
+		width: 90%;
+		margin-bottom: 130px;
+		margin-right: 4%;
+		margin-left: 4%;
+	}
+
+	.experience .avatar li h3{
+		margin-top: 30px;
+	}
+}
+
+.reservation{
+	width: 100%;
+	display: inline-block;
+	background: rgba(250,250,250,0.70);
+
+}
+
+.reservation h2{
+	font-size: 24px;
+	color:#3D1101;
+	text-align: center;
+	line-height: 2em;
+	margin:50px 0 38px 0;
+}
+
+.reservation .map{
+	display: inline-block;
+	width: 45%;
+	float: left;
+	margin-bottom: 50px;
+	margin-left: 2%;
+}
+
+.reservation .form{
+	float: right;
+	height: 49%;
+	width: 50%;
+	margin-left: 1%;
+	padding-right: 5%;
+
+}
+
+.reservation label{
+	font-size: 14px;
+	color: #3D1101;
+}
+
+.reservation .form .text {
+    font-size: 16px;
+    padding-left: 14px;
+    width: 100%;
+    height: 42px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    margin: 12px 0;
+}
+
+.reservation .form .choose{
+	margin-left: 20px;
+	margin-right: 5px;
+}
+
+
+/* pure---button.css start */
+
+/*!
+Pure v1.0.0
+Copyright 2013 Yahoo!
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+.button {
+    /* Structure */
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    box-sizing: border-box;
+}
+
+/* Firefox: Get rid of the inner focus border */
+.button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+/* Inherit .pure-g styles */
+.button-group {
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    *letter-spacing: normal; /* reset IE < 8 */
+    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+}
+
+.opera-only :-o-prefocus,
+.button-group {
+    word-spacing: -0.43em;
+}
+
+.button-group .button {
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+/*csslint outline-none:false*/
+
+.button {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0.5em 1em;
+    color: #444; /* rgba not supported (IE 8) */
+    color: rgba(0, 0, 0, 0.80); /* rgba supported */
+    border: 1px solid #999;  /*IE 6/7/8*/
+    border: none rgba(0, 0, 0, 0);  /*IE9 + everything else*/
+    background-color: #E6E6E6;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.button-hover,
+.button:hover,
+.button:focus {
+    /* csslint ignore:start */
+    filter: alpha(opacity=90);
+    /* csslint ignore:end */
+    background-image: -webkit-linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+    background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
+}
+.button:focus {
+    outline: 0;
+}
+.button-active,
+.button:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+    border-color: #000\9;
+}
+
+.button[disabled],
+.button-disabled,
+.button-disabled:hover,
+.button-disabled:focus,
+.button-disabled:active {
+    border: none;
+    background-image: none;
+    /* csslint ignore:start */
+    filter: alpha(opacity=40);
+    /* csslint ignore:end */
+    opacity: 0.40;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.button-hidden {
+    display: none;
+}
+
+.button-primary,
+.button-selected,
+a.button-primary,
+a.button-selected {
+    background-color: rgb(0, 120, 231);
+    color: #fff;
+}
+
+/* Button Groups */
+.button-group .button {
+    margin: 0;
+    border-radius: 0;
+    border-right: 1px solid #111;  /* fallback color for rgba() for IE7/8 */
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+
+}
+
+.button-group .button:first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+.button-group .button:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-right: none;
+}
+
+
+/* pure--button.css end*/
+
+.reservation .form .button-list {
+    text-align: right;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 50px
+}
+
+.reservation .form .cancel{
+	width: 70px;
+	height: 32px;
+	font-size: 14px;
+	color: #FFFFFF;
+	background: rgba(0,0,0, 0.35);
+	margin-right: 25px;
+	
+	
+}
+
+.reservation .form .submit{
+	width: 70px;
+	height: 32px;
+	font-size: 14px;
+	color: #ffffff;
+	background: #F56C23;
+}
+
+
+@media(max-width: 768px){
+	.reservation .map{
+		width: 45%;
+		margin-left: 2%;
+		margin-right: 2%;
+
+	}
+
+	.reservation .form{
+		float: left;
+		width: 45%;
+		padding-right: 0;
+	}
+
+	.reservation .form .button-list{
+		padding: 0;
+	    margin-top: 30px;
+	    margin-bottom: 20px;
+	    
+	}
+
+	.reservation .form .button .cancel{
+		margin-right: 0px;
+	}
+}
+
+@media(max-width: 568px){
+	.reservation .map{
+		width: 98%;
+		margin-right: 1%;
+		margin-left: 1%;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+
+	.reservation .map img{
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.reservation .form{
+		float: none;
+		width: 90%;
+		margin-right: 4.5%;
+		margin-left: 4.5%;
+	}
+	
+}
+
+.footer{
+	width: 100%;
+	display: inline-block;
+	background: #efe9e7;
+	color: #3d1101;
+	float: left;
+}
+
+.footer .about , .footer .contact , .footer .socialmedia{
+	float: left;
+	width: 25%;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-left: 5%;
+	
+}
+
+.footer .about h3 , .footer .contact h3{
+	font-size: 24px;
+	margin-bottom: 16px;
+}
+
+.footer .contact li{
+	list-style-type: disc;
+	margin-left: 20px;
+	margin-bottom: 5px;
+}
+
+
+.footer .socialmedia img{
+	float: left;
+	width: 245px;
+	height: 49px;
+	margin-right: 3%;
+	cursor: pointer;
+	
+}
+
+
+
+.footer .socialmedia ul{
+	float: right;
+	margin-top: 22px;
+	margin-right: 3%;
+
+}
+
+.footer .socialmedia ul li{
+	float: left;
+	margin-left: 6px;
+	margin-right: 6px;
+	font-size: 36px;
+	cursor: pointer;
+
+}
+
+.footer .socialmedia .googleplus{
+	color: #db4437;
+}
+
+.footer .socialmedia .twitter{
+	color: #41abe1;
+}
+
+.footer .socialmedia .facebook{
+	color: #3a5795;
+}
+
+
+@media(max-width: 768px){
+	.footer .about , .footer .contact , .footer .socialmedia{
+		width: 28%;
+	}
+}
+
+@media(max-width: 568px){
+	.footer .about , .footer .contact , .footer .socialmedia{
+		width: 98%;
+		margin-left: 1%;
+		margin-right: 1%;
+		margin-bottom: 30px;
+	}
+
+	/*.footer .socialmedia img{
+		margin-top: 10px;
+		margin-right: 2%;
+		float: right;
+	}
+
+	.footer .socialmedia ul{
+		margin-bottom: 30px;
+		margin-right: 0;
+	}*/
+}
+
+
+/* cart.html css*/
+
+
+
+.cart .content .itemlist{
+	display: inline-block;
+	padding: 5px;
+	margin-top: 52px;
+	margin-left: 2%;
+	float: left;
+	color: #3d1101;
+}
+
+.cart .content .itemlist .icon{
+	font-size: 24px;
+	margin-right: 15px;
+}
+
+.cart .content .itemlist h3{
+	font-size: 20px;
+	margin-bottom: 16px;
+}
+
+.cart .content .itemlist li{
+	height: 35px;
+	display: block;
+	padding-top: 10px;
+	border-bottom: 1px solid #3d1101; 
+	cursor: pointer;
+}
+
+.cart .content .itemlist li:hover{
+	background: #3d1101;
+	color: #ffffff;
+}
+
+.cart .content .itemlist .choose{
+	background: #3d1101;
+	color: #ffffff;
+}
+
+
+@media(max-width: 568px){
+	.cart .content .itemlist{
+		width: 99%;
+		margin-right: .5%;
+		margin-left: .5%;
+
+	}
+}
+
+.cart .content .meals{
+	float: right;
+	width: 70%;
+	margin-bottom: 50px;
+
+}
+
+
+
+.cart .content .searchbar{
+	padding-top: 52px;
+	width: 65%;
+	display: inline-block;
+	position: relative;
+	
+}
+
+.cart .content .meals .searchbar input{
+	display: block;
+	float: left;
+	width: 100%;
+	height: 32px;
+	background: transparent;
+	border: 2px solid #3d1101;
+	
+}
+
+.cart .content .meals .searchbar .search-btn{
+	float: left;
+	font-size: 24px;
+    width: 36px;
+    height: 32px;
+    background: #3d1101;
+    color: #ffffff;
+    text-align: center;
+    padding: 3px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 10;
+    right: 0;
+
+}
+
+.cart .content .meals .buycar{
+	padding-top: 52px;
+	display: block;
+	float: right;
+	margin-top: 10px;
+}
+
+.cart .content .meals .buycar li{
+	float: left;
+	display: block;
+	margin-right: 12px;
+}
+
+.cart .content .meals .buycar .checkout{
+	padding-right: 12px;
+	border-right: 1px solid #3d1101;
+}
+
+.cart .content .meals .buycar .shoppingcar{
+	width: 27px;
+	height: 29px;
+	font-size: 20px;
+	color: #3d1101;
+}
+
+.cart .content .meals .buycar .ball{
+	padding-top: 1px;
+	margin: 0;
+	font-size: 12px;
+	display: block;
+	width: 16px;
+	height: 16px;
+	color: #ffffff;
+	background: #FF5E45;
+	border: 1px solid #EFE9E7; 
+	border-radius: 12px;
+	text-align: center;
+	position: relative;
+	top: -8px;
+	right: 25px;
+}
+
+@media(max-width: 768px){
+	.cart .content .meals .searchbar{
+		width: 65%;
+	}
+}
+
+@media(max-width: 568px){
+	.cart .content .meals{
+	width: 100%;
+	margin-left: 0;
+	}
+	.cart .content .meals .searchbar{
+		width: 98%;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+
+	.cart .content .meals .searchbar input{
+		width: 100%;
+	}
+
+	.cart .content .meals .buycar{
+		margin:0;
+		padding-top:15px; 
+		
+
+	}
+}
+
+.cart .mealslist{
+	display: inline-block;
+	color: #3d1101;
+	
+}
+.cart .mealslist ul{
+	float: left;
+}
+
+.cart .mealslist li{
+	position: relative;
+	float: left;
+	width: 38%;
+	height: 280px;
+	margin-top: 30px;
+	margin-left: 1%;
+	margin-right: 1%;
+	background: #EFE9E7;
+	box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.16);
+
+	
+}
+
+.cart .mealslist li img{
+	width: 100%;
+	height: 120px;
+	
+}
+
+.cart .mealslist  .heart{
+	font-size: 18px;
+	position: absolute;
+	top: 0;
+	left: 2;
+	margin-top: 3px;
+	margin-left: 3px;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+/*緞帶標籤*/
+
+.cart .mealslist .ribbon{
+	/*擺放位置*/
+	position: absolute;
+	top: 10px;
+	right: -20px;
+	/*尺寸大小*/
+	width: 110px;
+	height: 30px;
+	background:#00CC99;
+	/*文字設定*/
+	color: #ffffff;
+	line-height: 28px;
+	text-align: center;
+	/*旋轉45度*/
+	transform: rotate(45deg);
+}
+
+.cart .mealslist .ribbon-warp{
+	/*當超過大小時隱藏*/
+	width: 110px;
+	height: 112px;
+	overflow:hidden;
+	position: absolute;
+	top: -5px;
+	right: -3px;
+}
+
+.cart .mealslist .ribbon{
+	position: relative;
+	left: 13px;
+	top: 13px;
+	width: 140px;
+	background: #00cc99;
+
+	text-align: center;
+	transform: rotate(45deg);
+}
+/*向後折的三角形*/
+.cart .mealslist .ribbon:before {
+    content: "";
+    border-top: 4px solid #078F6D;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    bottom: -4px;
+    left: 15px;
+}
+.cart .mealslist .ribbon:after {
+    content: "";
+    border-top: 4px solid #078F6D;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    position: absolute;
+    bottom: -4px;
+    right: 13px;
+}
+
+.cart .mealslist h3{
+	font-size: 20px;
+	text-align: center;
+	margin-top: 12px;
+}
+
+.cart .mealslist p{
+	text-align: center;
+	font-size: 12px;
+	line-height: 24px;
+	margin-bottom: 8px;
+}
+
+.cart .mealslist .separation-line{
+	width: 91px;
+	height: 1px;
+	border: 1px solid #3d1101;
+	margin: 0 auto;
+}
+
+.cart .mealslist .price{
+	font-weight: bold;
+	font-style: italic;
+
+}
+
+.cart .mealslist .want-buy{
+	text-align: center;
+	max-width: 200px;
+	height: 28px;
+	border: 2px solid #FF5E45;
+	border-radius: 3px;
+	color: #ff5e45;
+	font-size: 16px;
+	margin:0 auto;
+	margin-top: 13px;
+	cursor: pointer;
+}
+
+@media(max-width: 768px){
+	.cart .mealslist ul li{
+		width: 45%;
+		margin-right: 2%;
+		margin-left: 2%;
+	}
+}
+
+@media(max-width: 568px){
+	.cart .mealslist ul li{
+		width: 70%;
+		margin-right: 10%;
+		margin-left: 10%;
+	}
+}
+
+
+
+
+
+/* login css*/
+
+/* pure.css form */
+/*!
+Pure v1.0.0
+Copyright 2013 Yahoo!
+Licensed under the BSD License.
+https://github.com/yahoo/pure/blob/master/LICENSE.md
+*/
+/*csslint box-model:false*/
+/*
+Box-model set to false because we're setting a height on select elements, which
+also have border and padding. This is done because some browsers don't render
+the padding. We explicitly set the box-model for select elements to border-box,
+so we can ignore the csslint warning.
+*/
+
+.form input[type="text"],
+.form input[type="password"],
+.form input[type="email"],
+.form input[type="url"],
+.form input[type="date"],
+.form input[type="month"],
+.form input[type="time"],
+.form input[type="datetime"],
+.form input[type="datetime-local"],
+.form input[type="week"],
+.form input[type="number"],
+.form input[type="search"],
+.form input[type="tel"],
+.form input[type="color"],
+.form select,
+.form textarea {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.form input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.form input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form input[type="email"]:focus,
+.form input[type="url"]:focus,
+.form input[type="date"]:focus,
+.form input[type="month"]:focus,
+.form input[type="time"]:focus,
+.form input[type="datetime"]:focus,
+.form input[type="datetime-local"]:focus,
+.form input[type="week"]:focus,
+.form input[type="number"]:focus,
+.form input[type="search"]:focus,
+.form input[type="tel"]:focus,
+.form input[type="color"]:focus,
+.form select:focus,
+.form textarea:focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.form input:not([type]):focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+.form input[type="file"]:focus,
+.form input[type="radio"]:focus,
+.form input[type="checkbox"]:focus {
+    outline: thin solid #129FEA;
+    outline: 1px auto #129FEA;
+}
+.form .pure-checkbox,
+.form .pure-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+
+.form input[type="text"][disabled],
+.form input[type="password"][disabled],
+.form input[type="email"][disabled],
+.form input[type="url"][disabled],
+.form input[type="date"][disabled],
+.form input[type="month"][disabled],
+.form input[type="time"][disabled],
+.form input[type="datetime"][disabled],
+.form input[type="datetime-local"][disabled],
+.form input[type="week"][disabled],
+.form input[type="number"][disabled],
+.form input[type="search"][disabled],
+.form input[type="tel"][disabled],
+.form input[type="color"][disabled],
+.form select[disabled],
+.form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.form input[readonly],
+.form select[readonly],
+.form textarea[readonly] {
+    background-color: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+.form input:focus:invalid,
+.form textarea:focus:invalid,
+.form select:focus:invalid {
+    color: #b94a48;
+    border-color: #e9322d;
+}
+.form input[type="file"]:focus:invalid:focus,
+.form input[type="radio"]:focus:invalid:focus,
+.form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.form select {
+    /* Normalizes the height; padding is not sufficient. */
+    height: 2.25em;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.form select[multiple] {
+    height: auto;
+}
+.form label {
+    margin: 0.5em 0 0.2em;
+}
+.form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+.form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.form-stacked input[type="text"],
+.form-stacked input[type="password"],
+.form-stacked input[type="email"],
+.form-stacked input[type="url"],
+.form-stacked input[type="date"],
+.form-stacked input[type="month"],
+.form-stacked input[type="time"],
+.form-stacked input[type="datetime"],
+.form-stacked input[type="datetime-local"],
+.form-stacked input[type="week"],
+.form-stacked input[type="number"],
+.form-stacked input[type="search"],
+.form-stacked input[type="tel"],
+.form-stacked input[type="color"],
+.form-stacked input[type="file"],
+.form-stacked select,
+.form-stacked label,
+.form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.form-stacked input:not([type]) {
+    display: block;
+    margin: 0.25em 0;
+}
+.form-aligned input,
+.form-aligned textarea,
+.form-aligned select,
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.form-aligned .pure-help-inline,
+.form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.form-aligned textarea {
+    vertical-align: top;
+}
+
+/* Aligned Forms */
+.form-aligned .pure-control-group {
+    margin-bottom: 0.5em;
+}
+.form-aligned .pure-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.form-aligned .pure-controls {
+    margin: 1.5em 0 0 11em;
+}
+
+/* Rounded Inputs */
+.form input.pure-input-rounded,
+.form .pure-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.form .pure-group fieldset {
+    margin-bottom: 10px;
+}
+.form .pure-group input,
+.form .pure-group textarea {
+    display: block;
+    padding: 10px;
+    margin: 0 0 -1px;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+.form .pure-group input:focus,
+.form .pure-group textarea:focus {
+    z-index: 3;
+}
+.form .pure-group input:first-child,
+.form .pure-group textarea:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+}
+.form .pure-group input:first-child:last-child,
+.form .pure-group textarea:first-child:last-child {
+    top: 1px;
+    border-radius: 4px;
+    margin: 0;
+}
+.form .pure-group input:last-child,
+.form .pure-group textarea:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+}
+.form .pure-group button {
+    margin: 0.35em 0;
+}
+
+.form .pure-input-1 {
+    width: 100%;
+}
+.form .pure-input-3-4 {
+    width: 75%;
+}
+.form .pure-input-2-3 {
+    width: 66%;
+}
+.form .pure-input-1-2 {
+    width: 50%;
+}
+.form .pure-input-1-3 {
+    width: 33%;
+}
+.form .pure-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+/* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+.form .pure-help-inline,
+.form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #666;
+    vertical-align: middle;
+    font-size: 0.875em;
+}
+
+/* Block help for forms */
+.form-message {
+    display: block;
+    color: #666;
+    font-size: 0.875em;
+}
+
+@media only screen and (max-width : 480px) {
+    .form button[type="submit"] {
+        margin: 0.7em 0 0;
+    }
+
+    .form input:not([type]),
+    .form input[type="text"],
+    .form input[type="password"],
+    .form input[type="email"],
+    .form input[type="url"],
+    .form input[type="date"],
+    .form input[type="month"],
+    .form input[type="time"],
+    .form input[type="datetime"],
+    .form input[type="datetime-local"],
+    .form input[type="week"],
+    .form input[type="number"],
+    .form input[type="search"],
+    .form input[type="tel"],
+    .form input[type="color"],
+    .form label {
+        margin-bottom: 0.3em;
+        display: block;
+    }
+
+    .pure-group input:not([type]),
+    .pure-group input[type="text"],
+    .pure-group input[type="password"],
+    .pure-group input[type="email"],
+    .pure-group input[type="url"],
+    .pure-group input[type="date"],
+    .pure-group input[type="month"],
+    .pure-group input[type="time"],
+    .pure-group input[type="datetime"],
+    .pure-group input[type="datetime-local"],
+    .pure-group input[type="week"],
+    .pure-group input[type="number"],
+    .pure-group input[type="search"],
+    .pure-group input[type="tel"],
+    .pure-group input[type="color"] {
+        margin-bottom: 0;
+    }
+
+    .form-aligned .pure-control-group label {
+        margin-bottom: 0.3em;
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    .form-aligned .pure-controls {
+        margin: 1.5em 0 0 0;
+    }
+
+    /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
+    .form .pure-help-inline,
+    .form-message-inline,
+    .form-message {
+        display: block;
+        font-size: 0.75em;
+        /* Increased bottom padding to make it group with its related input element. */
+        padding: 0.2em 0 0.8em;
+    }
+}
+
+/* pures css end*/
+
+
+.login .form-login{
+	max-width: 300px;
+	margin: 0 auto;
+}
+
+.login .form-login h2{
+	font-size: 48px;
+	color: #3d1101;
+	font-weight: bold;
+	padding-top: 50px;
+	text-align: center;
+}
+
+.login .form-login p{
+	color: #3d1101;
+	font-size: 20px;
+	margin-top: 5px;
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+.login .form-login .form-list{
+	margin-top: 35px;
+	border-top:3px solid #ff5e45;
+	background: #EFE9E7;
+	box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.16);
+	padding: 0 15px;
+}
+
+.login .form-login .form-list .form-title{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.login .form-login .form-list label{
+	font-size: 14px;
+	color: #3d1101;
+}
+
+.login .form-login .form-list .input-email , .login .form-login .form-list .input-password{
+	position: relative;
+}
+
+.login .form-login .form-list .input-email i , .login .form-login .form-list .input-password i{
+	position: absolute;
+	top: 25px;
+	left: 10px;
+	color:rgba(61,17,0,0.50);
+}
+.login .form-login .form-list #email,.login .form-login .form-list #password{
+	width: 270px;
+	padding-left: 30px;
+
+}
+
+.login .form-login .form-list .forget-password{
+	font-size: 14px;
+	color: #FF5E45;
+	text-align: left;
+}
+
+
+.login .form-login .form-list button{
+	width: 125px;
+	height: 32px;
+	color: #ffffff;
+	border-radius: 3px;
+	padding: 0;
+}
+
+.login .form-login .form-list .sign-btn a{
+	text-decoration: none;
+	color: #ffffff;
+}
+.login .form-login .form-list .sign-btn{
+
+	background: rgba(0,0,0,0.35);
+	
+}
+
+.login .form-login .form-list .login-btn{
+	
+	background: #F56C23;
+
+}
+
+.login .content .form-login .basic-data{
+	display: none;
+}
+/* register */
+
+.register .content{
+	background: rgba(250,250,250,0.70);
+	padding-bottom: 30px;
+}
+
+.register .content  h2{
+	font-size: 48px;
+	color: #3d1101;
+	font-weight: bold;
+	padding-top: 50px;
+	text-align: center;
+}
+
+.register .content  p{
+	color: #3d1101;
+	font-size: 20px;
+	margin-top: 5px;
+	text-align: center;
+	margin-bottom: 35px;
+}
+
+.register .content .basic-data{
+	margin : 0 auto;
+	max-width: 620px;
+	display:block;
+	border-top:3px solid #ff5e45;
+	box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.16);
+	background: #EFE9E7;
+
+}
+
+.register .content .basic-data h3{
+	font-size: 18px;
+	font-weight: bold;
+	color: #3d1101;
+	text-align: center;
+	padding: 15px;
+	
+	
+}
+
+.register .content .basic-data .register-info{
+	width: 45%;
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline-block;
+	margin-bottom: 30px;
+}
+
+.register .content .basic-data .register-info p{
+	text-align: left;
+	font-size: 18px;
+	line-height: 24px;
+}
+
+.register .content .register-write{
+	width: 50%;
+	float: right;
+	margin-right: 1%;
+}
+
+.register .basic-data .register-write .input-email , .register .basic-data .register-write .input-password{
+	position: relative;
+}
+
+.register .basic-data .register-write .input-email i , .register .basic-data .register-write .input-password i{
+	position: absolute;
+	top: 28px;
+	left: 10px;
+	color:rgba(61,17,0,0.50);
+}
+.register .basic-data .register-write #email,.register .basic-data .register-write #password{
+	width: 100%;
+	padding-left: 30px;
+
+}
+
+.register .basic-data .register-write .already{
+	font-size: 14px;
+	color: #FF5E45;
+	text-align: left;
+	margin: 0;
+}
+
+.register .basic-data .register-write .login-btn{
+	width: 125px;
+	height: 32px;
+	color: #ffffff;
+	border-radius: 3px;
+	padding: 0;
+	background: #F56C23;
+	float: right;
+	
+}
+
+
+
+@media(max-width: 568px){
+	.register .content .basic-data{
+		max-width: 95%;
+		margin: 0 auto;
+		height: auto;
+		box-shadow: none;
+		
+
+	}
+
+	.register .register-info{
+		max-width: 45%;
+		margin-right: 2%;
+		margin-left: 2%;
+	}
+
+	.register .register-write{
+		float: none;
+		max-width: 45%;
+		margin-right: 2%;
+		margin-left: 2%;
+	}
+
+	
+}
